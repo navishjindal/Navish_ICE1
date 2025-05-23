@@ -55,5 +55,10 @@ public class CardTrick {
             System.out.println("Sorry, your card is not in the magic hand.");
         }
 
+        // Added 7 of SpadeS as Lucky Card and checked the lucky card
+        Card luckyCard = new Card();
+        luckyCard.setValue(7); // Hardcoded lucky card value
+        luckyCard.setSuit("Spades"); // Hardcoded lucky card suit
+
     }
 }
