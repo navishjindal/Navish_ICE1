@@ -31,34 +31,49 @@ public class CardTrick {
             System.out.println(c.getSuit() + " " + c.getValue());
         }
 
-        // Asked the user for input
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a card value (1-13): ");
-        int userValue = scanner.nextInt();
-        System.out.print("Enter a suit (0=Hearts, 1=Diamonds, 2=Spades, 3=Clubs): ");
-        int userSuitIndex = scanner.nextInt();
-        String userSuit = Card.SUITS[userSuitIndex];
-
-        // Searched the user's input in the magicHand array
-        boolean cardFound = false;
-        for (Card c : magicHand) {
-            if (c.getValue() == userValue && c.getSuit().equals(userSuit)) {
-                cardFound = true;
-                break;
-            }
-        }
-
-        // Displayed the result
-        if (cardFound) {
-            System.out.println("Congratulations, your card was found inside the magic hand!");
-        } else {
-            System.out.println("Sorry, your card is not in the magic hand.");
-        }
+//        // Asked the user for input
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Enter a card value (1-13): ");
+//        int userValue = scanner.nextInt();
+//        System.out.print("Enter a suit (0=Hearts, 1=Diamonds, 2=Spades, 3=Clubs): ");
+//        int userSuitIndex = scanner.nextInt();
+//        String userSuit = Card.SUITS[userSuitIndex];
+//
+//        // Searched the user's input in the magicHand array
+//        boolean cardFound = false;
+//        for (Card c : magicHand) {
+//            if (c.getValue() == userValue && c.getSuit().equals(userSuit)) {
+//                cardFound = true;
+//                break;
+//            }
+//        }
+//
+//        // Displayed the result
+//        if (cardFound) {
+//            System.out.println("Congratulations, your card was found inside the magic hand!");
+//        } else {
+//            System.out.println("Sorry, your card is not in the magic hand.");
+//        }
 
         // Added 7 of SpadeS as Lucky Card and checked the lucky card
         Card luckyCard = new Card();
         luckyCard.setValue(7); // Hardcoded lucky card value
         luckyCard.setSuit("Spades"); // Hardcoded lucky card suit
+        
+         boolean found = false;
+        for (Card card : magicHand) {
+            if (card.getValue() == luckyCard.getValue() && card.getSuit().equals(luckyCard.getSuit())) {
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            System.out.println("WOW! You found the lucky card! The 7 of Spades!");
+        } else {
+            System.out.println("The lucky card was " + luckyCard.getValue() + " of " + luckyCard.getSuit());
+        }
+
 
     }
 }
